@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+    
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="giftid.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto+Slab">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>giftid</title>
+    </head>
+
+    <body>
+        <div id="dataEntry">
+            <div id="logo">
+                <img src="images/giftid_white.png"/>
+            </div>
+            
+            <p>        
+                <input type=text data-yarn="user1" class="short" placeholder="I">
+                <!--can we make the placeholder text the default value of the 
+                    field so if the user leaves it blank that's what they get?-->
+                
+                <!--
+                <div data-yarn="got" class="active">got</div>
+                <div data-yarn="get" class="inactive">want to get</div>
+                -->
+    
+                <input type=radio name="gotget" id="gotget-got" value="0" hidden="" data-yarn="got">
+                <label for="gotget-got" class="switch">got</label>
+                <input type=radio name="gotget" value="1" id="gotget-get" hidden="" data-yarn="get" checked="">
+                <label for="gotget-get" class="switch">want to get</label>
+                <!--kt note to self: later can we adjust the grammar to "wants" if it's not "I" doing the giving/getting?-->
+            </p>
+
+            <p>
+                <input type=text data-yarn="gift" placeholder="a robot cat">
+                <!--maybe strip "a", "the", etc from this if they're there, or does it matter?-->
+            </p>
+
+            <p>
+                <!--
+                <div data-yarn="for" class="inactive">for</div>
+                <div data-yarn="from" class="active">from</div>
+                -->
+                
+                <input type=radio name="forfrom" id="forfrom-for" value="0" hidden="" data-yarn="for" checked="">
+                <label for="forfrom-for" class="switch">for</label>
+                <input type=radio name="forfrom" id="forfrom-from" value="1" hidden="" data-yarn="from">
+                <label for="forfrom-from" class="switch">from</label>
+            </p>
+
+            <p>
+            <input type=text data-yarn="user2" placeholder="Grandma">
+            </p>
+            
+            <div data-yarn="save" class="button">save</div>
+            
+        </div>
+        
+        <div id="bar">
+            <div id="tab">view results</div>
+        </div>
+        
+        <div id="dataDisplay"></div>
+
+    </body>
+</html>
