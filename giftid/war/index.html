@@ -2,6 +2,7 @@
     
 <html>
     <head>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
         <link rel="shortcut icon" href="favicon.ico">
         <link rel="stylesheet" type="text/css" href="giftid.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto+Slab">
@@ -25,9 +26,9 @@
                 <div data-yarn="get" class="inactive">want to get</div>
                 -->
     
-                <input type=radio name="gotget" id="gotget-got" value="0" hidden="" data-yarn="got">
+                <input type=radio name="gotget" id="gotget-got" value="got" hidden="" data-yarn="got">
                 <label for="gotget-got" class="switch">got</label>
-                <input type=radio name="gotget" value="1" id="gotget-get" hidden="" data-yarn="get" checked="">
+                <input type=radio name="gotget" value="get" id="gotget-get" hidden="" data-yarn="get" checked="">
                 <label for="gotget-get" class="switch">want to get</label>
                 <!--kt note to self: later can we adjust the grammar to "wants" if it's not "I" doing the giving/getting?-->
             </p>
@@ -43,9 +44,9 @@
                 <div data-yarn="from" class="active">from</div>
                 -->
                 
-                <input type=radio name="forfrom" id="forfrom-for" value="0" hidden="" data-yarn="for" checked="">
+                <input type=radio name="forfrom" id="forfrom-for" value="for" hidden="" data-yarn="for" checked="">
                 <label for="forfrom-for" class="switch">for</label>
-                <input type=radio name="forfrom" id="forfrom-from" value="1" hidden="" data-yarn="from">
+                <input type=radio name="forfrom" id="forfrom-from" value="from" hidden="" data-yarn="from">
                 <label for="forfrom-from" class="switch">from</label>
             </p>
 
