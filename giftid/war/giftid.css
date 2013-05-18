@@ -87,11 +87,27 @@ input[type="radio"]:checked + .switch {
     border-radius: 0 0 .25em .25em;
 }
 
-#dataDisplay {
+#bottomInfo {
     margin: 0 auto;
-    padding: 2em;
-    max-width: 80%;
+    max-width: 95%;
     line-height: 1.5em;
+}
+
+#bottomInfo a {
+    color: rgb(199,158,90);
+    text-decoration: none;
+}
+
+#bottomInfo a:hover {
+    text-decoration: underline;
+}
+    
+    
+ul {
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    line-height: 2;
 }
 
 h1, h2, h3, h4, h5, h6 {
