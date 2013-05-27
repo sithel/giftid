@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?><web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-	<servlet>
-		<servlet-name>Giftid</servlet-name>
-		<servlet-class>paper.yarn.ink.GiftidServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Giftid</servlet-name>
-		<url-pattern>/giftid</url-pattern>
-	</servlet-mapping>
+  <servlet>
+    <servlet-name>Giftid</servlet-name>
+    <servlet-class>paper.yarn.ink.GiftidServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DbTest</servlet-name>
+    <servlet-class>paper.yarn.ink.DbTestServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>Giftid</servlet-name>
+    <url-pattern>/giftid</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DbTest</servlet-name>
+    <url-pattern>/test/*</url-pattern>
+  </servlet-mapping>  
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
