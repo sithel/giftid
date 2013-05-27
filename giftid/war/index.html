@@ -12,7 +12,7 @@
     </head>
 
     <body onload="start()">
-        <div id="dataEntry">
+        <div id="dataEntry" class="fancyShow">
             <div id="logo">
                 <img src="images/giftid_white.png"/>
             </div>
@@ -54,7 +54,7 @@
             <p>
             <input type=text data-yarn="user2" placeholder="Grandma">
             </p>
-            
+            <!-- style this to be like a real button -->
             <div data-yarn="save" class="button">save</div>
             
         </div>
@@ -63,7 +63,11 @@
             <div id="tab">view results</div>
         </div>
         
-        <div id="dataDisplay"></div>
+        <div id="dataDisplay">
+            <div data-yarn="listOfEntries">
+                <!-- intetionally left blank, will get filled with shit -->
+            </div>
+        </div>
         
         <div id="bottomInfo">
             <ul>
@@ -74,8 +78,15 @@
                 <li><a href="#">oh no this one is a link</a></li>
                 <li contenteditable="true">this one can be edited holy crap</li>
             </ul>
-        
         </div>
-
+        <div data-yarn="giftEntry">
+            <!-- must match the content in the JS file to copy shit over edit, delete, details buttons-->
+            <div data-yarn="user1"></div>
+            <div data-yarn="user2"></div>
+            <div data-yarn="getgot"></div>
+            <div data-yarn="forfrom"></div>
+            <input type="text" data-yarn="gift"/>
+            <!-- end -->
+        </div>
     </body>
 </html>

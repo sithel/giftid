@@ -101,7 +101,17 @@ input[type="radio"]:checked + .switch {
 #bottomInfo a:hover {
     text-decoration: underline;
 }
-    
+
+#bottomInfo [contenteditable="true"] {
+    margin: 0;
+    padding: 0 10px;
+    float:left;
+}
+
+#bottomInfo [contenteditable="true"]:hover {
+    border-radius: .25em;
+    border: dashed 1px rgb(200,200,200);
+}
     
 ul {
     list-style: none; 

@@ -7,6 +7,24 @@ function start() {
 		handleLoad();
 	}
 	$('.button').click(handleSaveClick);
+    $('#tab').click(handleViewResultsClick);
+}
+function handleViewResultsClick() {
+    $('#dataEntry').toggle();
+    //KATIE!!! THIS IS WHERE YOU CAN CHANGE THE CLASS STUFF ON BUTTON CLICK THING!!!
+    $('#dataEntry').toggleClass('fancyHide');
+    $('#dataEntry').toggleClass('fancyShow');
+    // THIS IS THE END OF STUFF
+}
+function newMockElement() {
+    var obj = {
+        'name1' : (Math.random() < .5) ? 'Rebecca' : 'Katie',
+        'name2' : (Math.random() < .5) ? 'Bob' : 'Joe',
+        'getgot' : (Math.random() < .5) ? 'get' : 'got',
+        'forfrom' : (Math.random() < .5) ? 'for' : 'from',
+        'gift' : (Math.random() < .5) ? 'gold' : 'poop',
+    };
+    return obj;
 }
 function handleLoad() {
 	var successhandler = function(x) {
@@ -24,6 +42,26 @@ function handleLoad() {
 	}
 	var errorhandler = function(x) {
 		console.log("FAILURE: "+x);
+        console.log("We are using fake data here!");
+        var list = [];
+        //KATIE!!! CHANGE THE # here   //Math.random() * 10 + 1
+        var num = Math.random() * 10 + 1;  // <--- handle all cases of #s (0 to 100s)
+        for(var i = 0; i < num;++i) {
+            list.push(newMockElement());
+        }
+        for(var j = 0; j < list.length;++j) {
+            var gift = list[j];
+            var domEl = $('[data-yarn=giftEntry]').clone();
+            domEl.attr('data-yarn', 'foozy');
+            //KATIE!!!! SET THE VALUE!!!
+            domEl.find('[data-yarn=user1]').text(gift.name1);
+            domEl.find('[data-yarn=user2]').text(gift.name2);
+            domEl.find('[data-yarn=getgot]').text(gift.getgot);
+            domEl.find('[data-yarn=forform]').text(gift.forfrom);
+            domEl.find('[data-yarn=gift]').val(gift.gift);
+            // END
+            $('[data-yarn=listOfEntries]').append(domEl);
+        }
 	}
 	var hash = window.location.hash.replace(/#/g,'');
 	
