@@ -3,12 +3,12 @@ giftid
 
 Gift tracking website 
 
-Next Meeting: 6/9 11 am somewhere
+Next Meeting: 6/8 11 am somewhere
 
 KT Todos: 
 - [ ] sliding transition
 - [ ] style list of results
-- [ ] style button(s)
+- [x] style button(s)
 - can insert more fields into HTML to be implemented later
 
 Rebecca Todos:
@@ -21,7 +21,6 @@ General Todo:
 
 Future Todos: 
 - appengine deploy
-- 
 
 
 http://gitftid.appspot.com/mockups/mockups_v1.pdf
