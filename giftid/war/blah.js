@@ -34,11 +34,16 @@ function handleLoad() {
         for(var j = 0; j < list.length;++j) {
             var gift = list[j];
             var domEl = $('[data-yarn=giftEntry]').clone();
+            domEl.css('display','inline-block');
             domEl.attr('data-yarn', 'foozy');
             //KATIE!!!! SET THE VALUE!!!
             domEl.find('[data-yarn=user1]').text(gift.user1);
             domEl.find('[data-yarn=user2]').text(gift.user2);
-            domEl.find('[data-yarn=getgot]').text(gift.gotget);
+            if (gift.gotget == 'got') {
+                domEl.find('[data-yarn=getgot]').text("got");
+            } else {
+                domEl.find('[data-yarn=getgot]').text("would like to get");
+            }
             domEl.find('[data-yarn=forfrom]').text(gift.forfrom);
             domEl.find('[data-yarn=gift]').text(gift.gift);
             // END

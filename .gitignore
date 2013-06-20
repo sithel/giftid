@@ -1,3 +1,13 @@
 giftid/war/WEB-INF/appengine-generated/
 
 *.bin
+
+giftid/war/.DS_Store
+
+giftid/war/images/.DS_Store
+
+giftid/war/WEB-INF/appengine-generated/local_db.bin
+
+giftid/war/WEB-INF/appengine-generated/local_db.bin
+
+*.bin

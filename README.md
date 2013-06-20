@@ -3,17 +3,26 @@ giftid
 
 Gift tracking website 
 
-Next Meeting: 6/19 7 pm somewhere
+
+
+Next Meeting: 7/13 11 am
 
 KT Todos: 
-- [ ] sliding transition
-- [ ] style list of results
+- [ ] checkbox??
+- [ ] figure out things to do to make extra data entry work, then do those things
+- [ ] more mockups for editing data
+- [x] sliding transition
+- [x] style list of results
 - [x] style button(s)
 - can insert more fields into HTML to be implemented later
 
 Rebecca Todos:
-- [ ] save and retrieve list
+- [ ] gift timestamp
+- [ ] make list display in correct order, most recent first
+- [ ] make saving update the list
 - [ ] make code less ugly
+- [x] save and retrieve list
+
 
 General Todo:
 - look at next steps
