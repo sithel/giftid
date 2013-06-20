@@ -10,17 +10,16 @@ function start() {
     $('#tab').click(handleViewResultsClick);
 }
 function handleViewResultsClick() {
-    $('#dataEntry').toggle();
+    //$('#dataEntry').toggle(400); //<-- this is what makes fancyHide go *poof*
     //KATIE!!! THIS IS WHERE YOU CAN CHANGE THE CLASS STUFF ON BUTTON CLICK THING!!!
-    $('#dataEntry').toggleClass('fancyHide');
-    $('#dataEntry').toggleClass('fancyShow');
-    // THIS IS THE END OF STUFF
+    $('#anotherContainerBoo').toggleClass('fancyHide');
+    $('#anotherContainerBoo').toggleClass('fancyShow');
 }
 function newMockElement() {
     var obj = {
         'name1' : (Math.random() < .5) ? 'Rebecca' : 'Katie',
         'name2' : (Math.random() < .5) ? 'Bob' : 'Joe',
-        'getgot' : (Math.random() < .5) ? 'get' : 'got',
+        'getgot' : (Math.random() < .5) ? 'would like to get' : 'got',
         'forfrom' : (Math.random() < .5) ? 'for' : 'from',
         'gift' : (Math.random() < .5) ? 'gold' : 'poop',
     };
@@ -58,7 +57,7 @@ function handleLoad() {
             domEl.find('[data-yarn=user2]').text(gift.name2);
             domEl.find('[data-yarn=getgot]').text(gift.getgot);
             domEl.find('[data-yarn=forform]').text(gift.forfrom);
-            domEl.find('[data-yarn=gift]').val(gift.gift);
+            domEl.find('[data-yarn=gift]').text(gift.gift);
             // END
             $('[data-yarn=listOfEntries]').append(domEl);
         }
