@@ -29,7 +29,7 @@ function handleLoad() {
 	
 	$.ajax({
 	  type: 'GET',
-	  url: 'test/'+hash,
+	  url: 'giftid/'+hash,
 	  success: successhandler,
 	  error: errorhandler
 	 });
@@ -54,7 +54,7 @@ function handleSaveClick() {
 	
 	$.ajax({
 	  type: 'POST',
-	  url: 'test/'+hash,
+	  url: 'giftid/'+hash,
 	  data: params,
 	  success: successhandler,
 	  error: errorhandler

@@ -9,7 +9,7 @@
   </servlet>  
   <servlet-mapping>
     <servlet-name>Giftid</servlet-name>
-    <url-pattern>/giftid</url-pattern>
+    <url-pattern>/giftid/*</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>DbTest</servlet-name>
