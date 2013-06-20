@@ -13,71 +13,73 @@
 
     <body onload="start()">
         <header>
-            <div id="logo">
-                <img src="images/giftid_white.png"/>
-            </div>
+            <img src="images/giftid_white.png"/>
         </header>
-        <div id="dataEntry" class="fancyShow">            
-            <p>        
-                <input type=text data-yarn="user1" class="short" placeholder="I">
-                <!--can we make the placeholder text the default value of the 
-                    field so if the user leaves it blank that's what they get?-->
-                <input type=radio name="gotget" id="gotget-got" value="got" hidden="" data-yarn="got">
-                <label for="gotget-got" class="switch">got</label>
-                <input type=radio name="gotget" value="get" id="gotget-get" hidden="" data-yarn="get" checked="">
-                <label for="gotget-get" class="switch">would like to get</label>
-            </p>
-
-            <p>
-                <input type=text data-yarn="gift" placeholder="a robot cat">
-                <!--maybe strip "a", "the", etc from this if they're there, or does it matter?-->
-            </p>
-
-            <p>                
-                <input type=radio name="forfrom" id="forfrom-for" value="for" hidden="" data-yarn="for" checked="">
-                <label for="forfrom-for" class="switch">for</label>
-                <input type=radio name="forfrom" id="forfrom-from" value="from" hidden="" data-yarn="from">
-                <label for="forfrom-from" class="switch">from</label>
-            </p>
-
-            <p>
-            <input type=text data-yarn="user2" placeholder="Grandma">
-            </p>
+        
+        <div id="anotherContainerBoo" class="fancyShow">
             
-            <div id="extraDataEntry"></div>
-
-            <div data-yarn="save" class="button">save</div>
+            <div id="dataEntry">
+                <p>        
+                    <input type=text data-yarn="user1" class="short" placeholder="I">
+                    <!--can we make the placeholder text the default value of the 
+                        field so if the user leaves it blank that's what they get?-->
+                    <input type=radio name="gotget" id="gotget-got" value="got" hidden="" data-yarn="got">
+                    <label for="gotget-got" class="switch">got</label>
+                    <input type=radio name="gotget" value="get" id="gotget-get" hidden="" data-yarn="get" checked="">
+                    <label for="gotget-get" class="switch">would like to get</label>
+                </p>
+    
+                <p>
+                    <input type=text data-yarn="gift" placeholder="a robot cat">
+                    <!--maybe strip "a", "the", etc from this if they're there, or does it matter?-->
+                </p>
+    
+                <p>                
+                    <input type=radio name="forfrom" id="forfrom-for" value="for" hidden="" data-yarn="for" checked="">
+                    <label for="forfrom-for" class="switch">for</label>
+                    <input type=radio name="forfrom" id="forfrom-from" value="from" hidden="" data-yarn="from">
+                    <label for="forfrom-from" class="switch">from</label>
+                </p>
+    
+                <p>
+                    <input type=text data-yarn="user2" placeholder="Grandma">
+                </p>
+                
+                <div id="extraDataEntry"><p>+</p></div>
+    
+                <div data-yarn="save"><p class="button">save</p></div>
+                
+            </div><!--end dataEntry--> 
+        
+            <div id="bar">
+                <div id="tab">view results</div>
+            </div> 
+                            
+            <div id="dataDisplay">
+                <div data-yarn="listOfEntries">
+                    <!-- intetionally left blank, will get filled with shit -->
+                </div>
+            </div><!--dataDisplay-->
             
-        </div>
-        
-        <div id="bar">
-            <div id="tab">view results</div>
-        </div>
-        
-        <div id="dataDisplay">
-            <div data-yarn="listOfEntries">
-                <!-- intetionally left blank, will get filled with shit -->
-            </div>
-        </div>
-        
-        <div id="bottomInfo">
-            <ul>
-                <li>something something</li>
-                <li>something something</li>
-                <li>something something</li>
-                <li>something something</li>
-                <li><a href="#">oh no this one is a link</a></li>
-                <li contenteditable="true">this one can be edited holy crap</li>
-            </ul>
-        </div>
-        <div data-yarn="giftEntry">
-            <!-- must match the content in the JS file to copy shit over edit, delete, details buttons-->
-            <div data-yarn="user1"></div>
-            <div data-yarn="user2"></div>
-            <div data-yarn="getgot"></div>
-            <div data-yarn="forfrom"></div>
-            <input type="text" data-yarn="gift"/>
-            <!-- end -->
-        </div>
+            <div data-yarn="giftEntry" class="formatData">
+                <!-- must match the content in the JS file to copy shit over edit, delete, details buttons-->
+                <span data-yarn="user1"></span> 
+                <span data-yarn="getgot"></span>
+                <span data-yarn="user2"></span>
+                <span data-yarn="forfrom"></span>
+                <span data-yarn="gift" class="goldText"></span>.
+                <!-- end -->
+            </div><!--formatData-->
+            
+            <div id="bottomInfo">
+                <ul>
+                    <li contenteditable="true">remember to make content editable</li>
+                    <li>something info</li>
+                    <li>info something</li>
+                    <li><a href="#">oh no this one is a link</a></li>
+                </ul>
+            </div><!--bottomInfo-->
+            
+        </div><!--end anotherContainerBoo-->
     </body>
 </html>

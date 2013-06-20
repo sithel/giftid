@@ -3,7 +3,7 @@ giftid
 
 Gift tracking website 
 
-Next Meeting: 6/8 11 am somewhere
+Next Meeting: 6/19 7 pm somewhere
 
 KT Todos: 
 - [ ] sliding transition

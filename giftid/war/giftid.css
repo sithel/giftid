@@ -6,6 +6,8 @@ html {
 
 body {
     font-family: 'Roboto Slab', serif;
+    padding: 0;
+    margin: 0;
 }
 
 input {
@@ -31,41 +33,59 @@ input[type="text"] {
 
 /*will need to use position: fixed on something to get the top to stay at the top*/
 
+#anotherContainerBoo {
+    position: relative;
+    overflow: hidden;
+}
+
 header, #dataEntry {
-    margin: 0 auto;
     min-width: 100%;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
     background: rgb(168,0,0);  
-    font-size: 18px;
-    line-height: 1.5em;
     text-align: center;  
 }
 
 header {
+    margin: 0 auto;
     z-index: 3;
     padding: .75em 0;
+    position: fixed;
+    width: 100%;
+    background: rgb(168,0,0);  
+}
+
+header img {
+    padding-left: 1.5em;
+    -webkit-transform: scale(.75);
 }
 
 #dataEntry {
-    z-index: 2;
-    padding: 1.5em 0;
+    padding: 1em 0;
+    font-size: 18px;
+    line-height: 1.5em;
+    position: inherit;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 #dataEntry a {
-    text-decoration:none;
+    text-decoration: none;
 }
 
 .fancyShow {
-    transition: all 5s ease-out;
+    top: 7em;
+    transition: all 250ms ease-out;
 }
 
 .fancyHide {
-    top:-2em;
-    transition: all 5s ease-in;
+    top: -15em;
+    transition: all 250ms ease-in;
 }
 
 #extraDataEntry {
-    display: none;
+    position:inherit;
+}
+
+#dataDisplay {
+    position: inherit;
 }
 
 .switch, .button {
@@ -104,6 +124,11 @@ input[type="radio"]:checked + .switch {
     color: rgb(255,255,255);
 }
 
+#bar {
+    background: rgb(255,255,255);
+    z-index: 4;
+}
+
 #tab {
     background: rgb(168,0,0);
     margin: 0 5% 0 75%;
@@ -117,7 +142,23 @@ input[type="radio"]:checked + .switch {
     cursor: hand;
 }
 
+.formatData {
+    margin: 0 1em;
+    line-height: 2;
+}
+
+* [contenteditable="true"] {
+    padding: .5em;
+}
+
+* [contenteditable="true"]:hover {
+    border-radius: .25em;
+    border: dashed 1px rgb(200,200,200);
+}
+
 #bottomInfo {
+    position: relative;
+    text-align: left;
     margin: 0 auto;
     max-width: 95%;
     line-height: 1.5em;
@@ -132,15 +173,8 @@ input[type="radio"]:checked + .switch {
     text-decoration: underline;
 }
 
-#bottomInfo [contenteditable="true"] {
-    margin: 0;
-    padding: 0 10px;
-    float:left;
-}
-
-#bottomInfo [contenteditable="true"]:hover {
-    border-radius: .25em;
-    border: dashed 1px rgb(200,200,200);
+.goldText {
+    color: rgb(199,158,90);
 }
     
 ul {
