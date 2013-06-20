@@ -29,15 +29,21 @@ function handleLoad() {
 	var successhandler = function(x) {
 		console.log("SUCCESS : "+x);
 		x = JSON.parse(x);
-		if (!x.user1) {
-			console.log("We got back shit");
-			return;
-		}
-		$('[data-yarn=user1]').val(x.user1);
-		$('[name=gotget]:checked').val(x.gotget);
-		$('[data-yarn=gift]').val(x.gift);
-		$('[name=forfrom]:checked').val(x.forfrom);
-		$('[data-yarn=user2]').val(x.user2);
+		var list = x.gifts;
+		debugger;
+        for(var j = 0; j < list.length;++j) {
+            var gift = list[j];
+            var domEl = $('[data-yarn=giftEntry]').clone();
+            domEl.attr('data-yarn', 'foozy');
+            //KATIE!!!! SET THE VALUE!!!
+            domEl.find('[data-yarn=user1]').text(gift.user1);
+            domEl.find('[data-yarn=user2]').text(gift.user2);
+            domEl.find('[data-yarn=getgot]').text(gift.gotget);
+            domEl.find('[data-yarn=forfrom]').text(gift.forfrom);
+            domEl.find('[data-yarn=gift]').text(gift.gift);
+            // END
+            $('[data-yarn=listOfEntries]').append(domEl);
+        }
 	}
 	var errorhandler = function(x) {
 		console.log("FAILURE: "+x);
