@@ -12,26 +12,20 @@
     </head>
 
     <body onload="start()">
-        <div id="dataEntry">
+        <header>
             <div id="logo">
                 <img src="images/giftid_white.png"/>
             </div>
-            
+        </header>
+        <div id="dataEntry" class="fancyShow">            
             <p>        
                 <input type=text data-yarn="user1" class="short" placeholder="I">
                 <!--can we make the placeholder text the default value of the 
                     field so if the user leaves it blank that's what they get?-->
-                
-                <!--
-                <div data-yarn="got" class="active">got</div>
-                <div data-yarn="get" class="inactive">want to get</div>
-                -->
-    
                 <input type=radio name="gotget" id="gotget-got" value="got" hidden="" data-yarn="got">
                 <label for="gotget-got" class="switch">got</label>
                 <input type=radio name="gotget" value="get" id="gotget-get" hidden="" data-yarn="get" checked="">
-                <label for="gotget-get" class="switch">want to get</label>
-                <!--kt note to self: later can we adjust the grammar to "wants" if it's not "I" doing the giving/getting?-->
+                <label for="gotget-get" class="switch">would like to get</label>
             </p>
 
             <p>
@@ -39,12 +33,7 @@
                 <!--maybe strip "a", "the", etc from this if they're there, or does it matter?-->
             </p>
 
-            <p>
-                <!--
-                <div data-yarn="for" class="inactive">for</div>
-                <div data-yarn="from" class="active">from</div>
-                -->
-                
+            <p>                
                 <input type=radio name="forfrom" id="forfrom-for" value="for" hidden="" data-yarn="for" checked="">
                 <label for="forfrom-for" class="switch">for</label>
                 <input type=radio name="forfrom" id="forfrom-from" value="from" hidden="" data-yarn="from">
@@ -55,6 +44,8 @@
             <input type=text data-yarn="user2" placeholder="Grandma">
             </p>
             
+            <div id="extraDataEntry"></div>
+
             <div data-yarn="save" class="button">save</div>
             
         </div>
@@ -63,7 +54,11 @@
             <div id="tab">view results</div>
         </div>
         
-        <div id="dataDisplay"></div>
+        <div id="dataDisplay">
+            <div data-yarn="listOfEntries">
+                <!-- intetionally left blank, will get filled with shit -->
+            </div>
+        </div>
         
         <div id="bottomInfo">
             <ul>
@@ -74,8 +69,15 @@
                 <li><a href="#">oh no this one is a link</a></li>
                 <li contenteditable="true">this one can be edited holy crap</li>
             </ul>
-        
         </div>
-
+        <div data-yarn="giftEntry">
+            <!-- must match the content in the JS file to copy shit over edit, delete, details buttons-->
+            <div data-yarn="user1"></div>
+            <div data-yarn="user2"></div>
+            <div data-yarn="getgot"></div>
+            <div data-yarn="forfrom"></div>
+            <input type="text" data-yarn="gift"/>
+            <!-- end -->
+        </div>
     </body>
 </html>
