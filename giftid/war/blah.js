@@ -8,12 +8,19 @@ function start() {
 	}
 	$('.button').click(handleSaveClick);
     $('#tab').click(handleViewResultsClick);
+    $('[data-yarn=details]').click(handleDetailClick);
+}
+function handleDetailClick() {
+    $('#extraDataEntry').toggle();
 }
 function handleViewResultsClick() {
     //$('#dataEntry').toggle(400); //<-- this is what makes fancyHide go *poof*
     //KATIE!!! THIS IS WHERE YOU CAN CHANGE THE CLASS STUFF ON BUTTON CLICK THING!!!
     $('#anotherContainerBoo').toggleClass('fancyHide');
     $('#anotherContainerBoo').toggleClass('fancyShow');
+    if ($('#anotherContainerBoo').hasClass('fancyHide')) {
+        $('#extraDataEntry').hide();
+    }
 }
 function newMockElement() {
     var obj = {
@@ -30,11 +37,10 @@ function handleLoad() {
 		console.log("SUCCESS : "+x);
 		x = JSON.parse(x);
 		var list = x.gifts;
-		debugger;
         for(var j = 0; j < list.length;++j) {
             var gift = list[j];
             var domEl = $('[data-yarn=giftEntry]').clone();
-            domEl.css('display','inline-block');
+            domEl.css('display','inherit');
             domEl.attr('data-yarn', 'foozy');
             //KATIE!!!! SET THE VALUE!!!
             domEl.find('[data-yarn=user1]').text(gift.user1);

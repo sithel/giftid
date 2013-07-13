@@ -38,11 +38,11 @@ input[type="text"] {
 .long {
     width: 20em;
 }
-    
-/*will need to use position: fixed on something to get the top to stay at the top*/
 
 #anotherContainerBoo {
-    position: relative;
+    width: 100%;
+    height: 100%;
+    position: fixed;
     overflow: hidden;
 }
 
@@ -71,7 +71,7 @@ header img {
     padding: 1em 0;
     font-size: 18px;
     line-height: 1.5em;
-    position: inherit;
+    position: relative;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -90,11 +90,18 @@ header img {
 }
 
 #extraDataEntry {
-    position:inherit;
+    position: relative;
+    display: none;
+}
+
+#scrollingDiv {
+    position: static;
+    overflow: auto;
+    min-height: 2em;
+    max-height: 15em;
 }
 
 #dataDisplay {
-    position: inherit;
 }
 
 .switch, .button {

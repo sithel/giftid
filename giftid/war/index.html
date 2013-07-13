@@ -45,7 +45,7 @@
                     <input type=text data-yarn="user2" placeholder="Grandma">
                 </p>
                 
-                <p class="button" style="max-width:5em">+ details</p>
+                <p class="button" style="max-width:5em" data-yarn="details">+ details</p>
                 
                 <div id="extraDataEntry">
                     
@@ -65,13 +65,15 @@
             <div id="bar">
                 <div id="tab">view results</div>
             </div> 
-                            
-            <div id="dataDisplay">
-                <div data-yarn="listOfEntries">
-                    <!-- intetionally left blank, will get filled with shit -->
-                </div>
-            </div><!--dataDisplay-->
-            
+                 
+            <div id="scrollingDiv">
+                <div id="dataDisplay">
+                    <div data-yarn="listOfEntries">
+                        <!-- intetionally left blank, will get filled with shit -->
+                    </div>
+                </div><!--dataDisplay-->
+            </div>
+                
             <div data-yarn="giftEntry" class="formatData" style="display: none;">
                 <!-- must match the content in the JS file to copy shit over edit, delete, details buttons-->
                 <span data-yarn="user1" contenteditable="true"></span> 
