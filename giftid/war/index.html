@@ -45,9 +45,20 @@
                     <input type=text data-yarn="user2" placeholder="Grandma">
                 </p>
                 
-                <div id="extraDataEntry"><p>+</p></div>
+                <p class="button" style="max-width:5em">+ details</p>
+                
+                <div id="extraDataEntry">
+                    
+                    <p>Cost: <input type="text" data-yarn="monies" class="short" placeholder="$0.02">
+                        <span style="padding-left:2em">
+                        Date: <input type="date" data-yarn="when" class="medium"></span></p>
+                        <p>URL: <input type="url" data-yarn="link" class="long"  placeholder="http://www.icanhazcheezburger.com"></p>
+                    
+                    <textarea rows="5" cols="40" data-yarn="words" placeholder="notes and tags"></textarea>
+                
+                </div><!--end extraDataEntry-->
     
-                <div data-yarn="save"><p class="button">save</p></div>
+                <div data-yarn="save"><p class="button" class="button-save" style="max-width:2em">save</p></div>
                 
             </div><!--end dataEntry--> 
         
@@ -63,17 +74,31 @@
             
             <div data-yarn="giftEntry" class="formatData" style="display: none;">
                 <!-- must match the content in the JS file to copy shit over edit, delete, details buttons-->
-                <span data-yarn="user1"></span> 
+                <span data-yarn="user1" contenteditable="true"></span> 
+                
+                <select id="getgot">
+                    <option value="getgot-got">got</option>
+                    <option value="getgot-get">would like to get</option>
+                </select>
+                
                 <span data-yarn="getgot"></span>
-                <span data-yarn="gift" class="goldText"></span>
+                <span data-yarn="gift"contenteditable="true" class="goldText"></span>
+                
+                <select id="forfrom">
+                    <option value="forfrom-for">for</option>
+                    <option value="forfrom-from">from</option>
+                </select>                
+                
                 <span data-yarn="forfrom"></span>
-                <span data-yarn="user2"></span>.
+                <span data-yarn="user2" contenteditable="true"></span>
+                <input id="checkbox" name="checkbox" type="checkbox" data-yarn="doneOrNot" onchange="">
+                <hr />
                 <!-- end -->
             </div><!--formatData-->
             
             <div id="bottomInfo">
                 <ul>
-                    <li contenteditable="true">remember to make content editable</li>
+                    <li>wow those drop-downs are ugly, hmm</li>
                     <li>something info</li>
                     <li>info something</li>
                     <li><a href="#">oh no this one is a link</a></li>

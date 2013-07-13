@@ -63,7 +63,7 @@ function handleLoad() {
             var gift = list[j];
             var domEl = $('[data-yarn=giftEntry]').clone();
             domEl.attr('data-yarn', 'foozy');
-            //KATIE!!!! SET THE VALUE!!!
+            //KATIE!!!! SET THE VALUE!!! number to be displayed for debugging purposes
             domEl.find('[data-yarn=user1]').text(gift.name1);
             domEl.find('[data-yarn=user2]').text(gift.name2);
             domEl.find('[data-yarn=getgot]').text(gift.getgot);

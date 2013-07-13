@@ -10,9 +10,9 @@ body {
     margin: 0;
 }
 
-input {
+input,textarea {
     font-size:18px;
-    font-family:'Roboto Slab', serif;   
+    font-family:'Roboto Slab', serif;
 }
 
 input[type="text"] {
@@ -29,8 +29,16 @@ input[type="text"] {
 
 .short {
     width: 3em;
+}  
+
+.medium {
+    width: 9.9em;
 }
 
+.long {
+    width: 20em;
+}
+    
 /*will need to use position: fixed on something to get the top to stay at the top*/
 
 #anotherContainerBoo {
@@ -59,6 +67,7 @@ header img {
 }
 
 #dataEntry {
+    color: rgb(255,255,255);
     padding: 1em 0;
     font-size: 18px;
     line-height: 1.5em;
@@ -110,8 +119,7 @@ header img {
 .button {
     background: rgb(199,158,90);
     color: rgb(255,255,255);
-    max-width: 2em;
-    margin: 0 auto;
+    margin: 1em auto;
 }
 
 .button:hover {
@@ -149,12 +157,12 @@ input[type="radio"]:checked + .switch {
 }
 
 * [contenteditable="true"] {
-    padding: .5em;
+    /*padding: .5em;*/
 }
 
 * [contenteditable="true"]:hover {
-    border-radius: .25em;
-    border: dashed 1px rgb(200,200,200);
+    /*border-radius: .25em;
+    border: dashed 1px rgb(200,200,200);*/
 }
 
 #bottomInfo {
@@ -197,4 +205,11 @@ img {
     padding: 0;
     margin: 0;
     max-width: 95%;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: solid 1px rgb(199,158,90);
+    background-image: -webkit-linear-gradient(left, rgb(255,255,255), rgb(199,158,90), rgb(255,255,255));
 }
