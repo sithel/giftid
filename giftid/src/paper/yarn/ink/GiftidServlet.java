@@ -16,6 +16,7 @@ import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Transaction;
 import com.google.appengine.labs.repackaged.org.json.JSONArray;
 import com.google.appengine.labs.repackaged.org.json.JSONException;
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
@@ -49,18 +50,22 @@ public class GiftidServlet extends HttpServlet {
   ServletException, 
   IOException {
 	  System.out.println("Looking up '"+extractKeyString(req)+"'");
-    Entity entity = userRecord.findUserRecord(extractKeyString(req));
-    if (entity == null) {
+    Entity userEntity = userRecord.findUserRecord(extractKeyString(req));
+    if (userEntity == null) {
+      Transaction txn = datastore.beginTransaction();
       System.out.println("No entity found-- making a new one");
-      entity = userRecord.pushDataIntoEntity(req);
-      datastore.put(entity);
+      userEntity = userRecord.pushDataIntoEntity(req);
+      datastore.put(userEntity);
+      txn.commit();
     } 
     System.out.println("Creating new gift entry");
-    Entity x = giftRecord.makeNewEntity(entity, req);//update existing entity
+    Transaction txn = datastore.beginTransaction();
+    Entity giftEntity = giftRecord.makeNewEntity(userEntity, req);//update existing entity
     System.out.println("Saving endity back to DB");
-    datastore.put(x);    // save entity back
+    datastore.put(giftEntity);    // save entity back
+    txn.commit();
     PrintWriter out = resp.getWriter();
-    JSONObject obj = userRecord.convertToJsonObj(entity);
+    JSONObject obj = userRecord.convertToJsonObj(userEntity);
     out.print(obj);
     out.close();
 	}
@@ -99,7 +104,7 @@ public class GiftidServlet extends HttpServlet {
       JSONArray array = new JSONArray();
       System.out.println("Convert To Json Obj");
       for(Entity e : pq.asList(FetchOptions.Builder.withLimit(50))){
-        System.out.println(">> Entity found : "+e.getKey().getId()  );
+        System.out.println(">> Entity found : "+e.getKey().getId() );
         JSONObject g = giftRecord.convertToJsonObj(e);
         array.put(g);
       }
