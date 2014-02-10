@@ -25,6 +25,8 @@ Rebecca Todos:
 
 
 General Todo:
+- [ ] prompt user on first 'save' click to enter email / show saved URL
+- [ ] obfuscae/randomize the url for users to return to (using easily guessable uid atm)
 - look at next steps
 
 

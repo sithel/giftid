@@ -1,12 +1,12 @@
 console.log("This ran");
 
 function start() {
-	console.log("We started");
-	console.log("Is there a hash? : "+window.location.hash);
-	if(window.location.hash.length > 0) {
-		handleLoad();
-	}
-	$('.button').click(handleSaveClick);
+  console.log("We started");
+  console.log("Is there a hash? : "+window.location.hash);
+  if(window.location.hash.length > 0) {
+    handleLoad();
+  }
+  $('.button').click(handleSaveClick);
     $('#tab').click(handleViewResultsClick);
     $('[data-yarn=details]').click(handleDetailClick);
 }
@@ -32,32 +32,35 @@ function newMockElement() {
     };
     return obj;
 }
+function displaySavedGiftEntry(giftData) {
+  var domEl = $('[data-yarn=giftEntry]').clone();
+  domEl.css('display','inherit');
+  domEl.attr('data-yarn', 'foozy');
+  //KATIE!!!! SET THE VALUE!!!
+  domEl.find('[data-yarn=user1]').text(giftData.user1);
+  domEl.find('[data-yarn=user2]').text(giftData.user2);
+  if (giftData.gotget == 'got') {
+    domEl.find('[data-yarn=getgot]').text("got");
+  } else {
+    domEl.find('[data-yarn=getgot]').text("would like to get");
+  }
+  domEl.find('[data-yarn=forfrom]').text(giftData.forfrom);
+  domEl.find('[data-yarn=gift]').text(giftData.gift);
+  // END
+  $('[data-yarn=listOfEntries]').append(domEl);
+}
 function handleLoad() {
-	var successhandler = function(x) {
-		console.log("SUCCESS : "+x);
-		x = JSON.parse(x);
-		var list = x.gifts;
-        for(var j = 0; j < list.length;++j) {
-            var gift = list[j];
-            var domEl = $('[data-yarn=giftEntry]').clone();
-            domEl.css('display','inherit');
-            domEl.attr('data-yarn', 'foozy');
-            //KATIE!!!! SET THE VALUE!!!
-            domEl.find('[data-yarn=user1]').text(gift.user1);
-            domEl.find('[data-yarn=user2]').text(gift.user2);
-            if (gift.gotget == 'got') {
-                domEl.find('[data-yarn=getgot]').text("got");
-            } else {
-                domEl.find('[data-yarn=getgot]').text("would like to get");
-            }
-            domEl.find('[data-yarn=forfrom]').text(gift.forfrom);
-            domEl.find('[data-yarn=gift]').text(gift.gift);
-            // END
-            $('[data-yarn=listOfEntries]').append(domEl);
-        }
-	}
-	var errorhandler = function(x) {
-		console.log("FAILURE: "+x);
+  var successhandler = function(x) {
+    console.log("SUCCESS : "+x);
+    x = JSON.parse(x);
+    var list = x.gifts;
+    for(var j = 0; j < list.length;++j) {
+      var gift = list[j];
+      displaySavedGiftEntry(gift);
+    }
+  }
+  var errorhandler = function(x) {
+    console.log("FAILURE: "+x);
         console.log("We are using fake data here!");
         var list = [];
         //KATIE!!! CHANGE THE # here   //Math.random() * 10 + 1
@@ -78,39 +81,42 @@ function handleLoad() {
             // END
             $('[data-yarn=listOfEntries]').append(domEl);
         }
-	}
-	var hash = window.location.hash.replace(/#/g,'');
-	
-	$.ajax({
-	  type: 'GET',
-	  url: 'giftid/'+hash,
-	  success: successhandler,
-	  error: errorhandler
-	 });
+  }
+  var hash = window.location.hash.replace(/#/g,'');
+  
+  $.ajax({
+    type: 'GET',
+    url: 'giftid/'+hash,
+    success: successhandler,
+    error: errorhandler
+   });
 }
 function handleSaveClick() {
-	var params = {
-			'user1': $('[data-yarn=user1]').val(),
-			'gotget': $('[name=gotget]:checked').val(),
-			'gift': $('[data-yarn=gift]').val(),
-			'forfrom': $('[name=forfrom]:checked').val(),
-			'user2': $('[data-yarn=user2]').val()
-	}
-	var successhandler = function(x) {
-		console.log("SUCCESS : "+x);
-		x = JSON.parse(x);
-		window.location.hash = x.key;
-	}
-	var errorhandler = function(x) {
-		console.log("FAILURE: "+x);
-	}
-	var hash = window.location.hash.replace(/#/g,'');
-	
-	$.ajax({
-	  type: 'POST',
-	  url: 'giftid/'+hash,
-	  data: params,
-	  success: successhandler,
-	  error: errorhandler
-	 });
+  var params = {
+      'user1': $('[data-yarn=user1]').val(),
+      'gotget': $('[name=gotget]:checked').val(),
+      'gift': $('[data-yarn=gift]').val(),
+      'forfrom': $('[name=forfrom]:checked').val(),
+      'user2': $('[data-yarn=user2]').val()
+  }
+  var successhandler = function(x) {
+    console.log("SUCCESS : "+x);
+    x = JSON.parse(x);
+    window.location.hash = x.key;
+    if (x.gifts && x.gifts.length > 0) {
+      displaySavedGiftEntry(x.gifts[x.gifts.length - 1]);
+    }
+  }
+  var errorhandler = function(x) {
+    console.log("FAILURE: "+x);
+  }
+  var hash = window.location.hash.replace(/#/g,'');
+  
+  $.ajax({
+    type: 'POST',
+    url: 'giftid/'+hash,
+    data: params,
+    success: successhandler,
+    error: errorhandler
+   });
 }
